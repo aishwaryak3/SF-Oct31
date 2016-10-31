@@ -15,9 +15,10 @@ public class MyDI {
         Field[] fields = theClass.getDeclaredFields();
         for (Field f : fields) {
             SetMe annot = f.getAnnotation(SetMe.class);
-            if (f != null) {
+            if (annot != null) {
                 f.setAccessible(true);
-                f.set(target, "This was injected");
+                f.set(target, props.get(annot.value()) 
+                        + ", and the count " + annot.count());
             }
         }
         System.out.println("Target is: " + target);
