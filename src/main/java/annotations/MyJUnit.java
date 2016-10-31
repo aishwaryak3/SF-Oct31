@@ -22,7 +22,5 @@ public class MyJUnit {
                 m.invoke(target);
             }
         }
-        
     }
-
 }
